@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: app
+        restart: always
+        ports:
+            - 3000:3000
+        depends_on:
+            - mongodb
+        env_file:
+            - .env
+    
+    mongodb:
+        image: mongo:latest
+        container_name: mongodb
+        restart: always
+        ports:
+            - 27017:27017
+        env_file:
+            - .env
+        volumes:
+            - mongodb:/data/db
+
+volumes:
+    mongodb:
+        name: telegram_elevenlabs_docker
