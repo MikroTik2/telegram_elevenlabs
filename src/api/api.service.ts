@@ -99,7 +99,7 @@ export class ApiService {
 
                const data = await this.elevenlabs.textToSoundEffects.convert({
                     text,
-                    duration_seconds: 10,
+                    duration_seconds: 120,
                     prompt_influence: 0.3
                });
      
